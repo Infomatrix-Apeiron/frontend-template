@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Button} from 'primeng/button';
-import {ApiService} from '../../_services/api.service';
+import {FlowService} from '../_services/flow.service';
+import {Router} from '@angular/router';
 
 interface GenerateIdeasRequest {
     prompt: string;
@@ -20,7 +21,8 @@ export class InputPage {
     selectedRequest?: GenerateIdeasRequest;
 
     constructor(
-        private api: ApiService,
+        private flowService: FlowService,
+        private router: Router,
     ) {
     }
 
@@ -40,12 +42,10 @@ export class InputPage {
     }
 
     submit() {
-
         if (!this.selectedRequest) return;
 
-        this.api.generateIdeas(
-            this.selectedRequest.prompt,
-            this.selectedRequest.files
-        ).subscribe();
+        this.flowService.prompt = this.selectedRequest.prompt;
+        this.flowService.files = this.selectedRequest.files;
+        this.router.navigate(['/ideas-list']);
     }
 }
