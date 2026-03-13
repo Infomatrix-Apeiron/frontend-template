@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../environments/environment';
-import {Idea} from '../_models/api.models';
-
+import {Idea, IdeaInstructionsResponse} from '../_models/api.models';
 
 @Injectable({
     providedIn: 'root'
 })
+
 export class ApiService {
 
     private readonly baseUrl = `${environment.apiUrl}/ai`;
@@ -29,21 +29,25 @@ export class ApiService {
             formData
         );
     }
-}
 
-/*
-[
-    {
-        "title": "Міні-гаманець для дрібниць",
-        "description": "Використання міцної та вологостійкої обгортки для створення компактного футляра для монет або навушників. Такий виріб допоможе організувати простір у сумці та захистить вміст від вологи завдяки щільному матеріалу упаковки."
-    },
-    {
-        "title": "Декоративна закладка для книг",
-        "description": "Яскравий дизайн упаковки з тропічними мотивами ідеально підходить для виготовлення міцної та гнучкої закладки. Вона буде легко помітною серед сторінок завдяки своєму глянцевому покриттю та насиченим блакитним кольорам."
-    },
-    {
-        "title": "Світловідбивний елемент для аплікацій",
-        "description": "Завдяки внутрішньому сріблястому шару обгортки можна вирізати деталі для декорування блокнотів або створення творчих колажів. Це додасть виробам ефекту металевого блиску та цікавої текстури, перетворюючи відходи на художній матеріал."
+    generateInstructions(
+        title: string,
+        description: string,
+        photo?: File
+    ): Observable<IdeaInstructionsResponse> {
+
+        const formData = new FormData();
+
+        formData.append('title', title);
+        formData.append('description', description);
+
+        if (photo) {
+            formData.append('photo', photo);
+        }
+
+        return this.http.post<IdeaInstructionsResponse>(
+            `${this.baseUrl}/generate-instructions`,
+            formData
+        );
     }
-]
- */
+}

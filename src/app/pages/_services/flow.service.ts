@@ -11,12 +11,6 @@ export class FlowService {
 
     files: File[] = [];
 
-    loadingText: string = '';
-
-    ideas: Idea[] = [];
-
     selectedIdea?: Idea;
-
-    resultPhoto?: File;
 
 }
