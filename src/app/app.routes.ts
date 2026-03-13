@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {App} from './app';
-import {StartPage} from './pages/start/start-page.component';
+import {StartPage} from './pages/start-page/start-page.component';
+import {InputPage} from './pages/input-page/input-page';
 
 export const routes: Routes = [
     {
@@ -9,6 +10,7 @@ export const routes: Routes = [
         children: [
             {path: '', redirectTo: 'start', pathMatch: 'full'},
             {path: 'start', component: StartPage},
+            {path: 'input', component: InputPage},
         ]
     }
 ];
