@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {delay, Observable, of} from 'rxjs';
 import {environment} from '../environments/environment';
 import {Idea, IdeaInstructionsResponse} from '../_models/api.models';
-import {RESPONSE_1, RESPONSE_2, RESPONSE_3} from './responses.mock';
+import {RESPONSE_1, RESPONSE_2, RESPONSE_2_OLD, RESPONSE_3} from './responses.mock';
 
 @Injectable({
     providedIn: 'root'
