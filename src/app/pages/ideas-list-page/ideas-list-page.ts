@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, DestroyRef, OnInit} from '@angular/core';
 import {ApiService} from '../../_services/api.service';
 import {FlowService} from '../_services/flow.service';
 import {Router} from '@angular/router';
-import {BehaviorSubject, finalize, map} from 'rxjs';
+import {BehaviorSubject, finalize, map, take} from 'rxjs';
 import {Idea} from '../../_models/api.models';
 import {AsyncPipe} from '@angular/common';
 import {ProgressSpinner} from 'primeng/progressspinner';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-ideas-list-page',
@@ -17,7 +18,7 @@ import {ProgressSpinner} from 'primeng/progressspinner';
     styleUrl: './ideas-list-page.css',
 })
 
-export class IdeasListPage {
+export class IdeasListPage implements OnInit {
 
     loading$ = new BehaviorSubject<boolean>(false);
     ideas: Idea[] = [];
@@ -26,15 +27,23 @@ export class IdeasListPage {
         private api: ApiService,
         private flowService: FlowService,
         private router: Router,
+        private destroyRef: DestroyRef,
     ) {
     }
 
     ngOnInit() {
+        if (!this.flowService.prompt || !this.flowService.files.length) {
+            this.router.navigate(['/input']);
+            return;
+        }
+
         this.loading$.next(true);
         this.api.generateIdeas(
             this.flowService.prompt,
             this.flowService.files
         ).pipe(
+            take(1),
+            takeUntilDestroyed(this.destroyRef),
             map((response) => {
                 this.ideas = response;
                 console.log('response', response);
