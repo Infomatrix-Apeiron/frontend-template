@@ -5,8 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --background-color: #FFF0E6;
+}
+
 html {
     font-size: 14px;
+    background-color: var(--background-color);
 }
 
 body {

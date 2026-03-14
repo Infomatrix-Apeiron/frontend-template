@@ -1,22 +1,32 @@
-<div class="h-screen flex flex-col px-6 py-8">
+<div class="h-screen flex flex-col">
 
-    <div class="flex-1 flex flex-col justify-center items-center text-center">
-
-        <h1 class="text-3xl font-bold mb-4">
-            Привіт, почнімо 👋
-        </h1>
-
-        <p class="text-gray-500 max-w-xs leading-relaxed">
-            Створи щось корисне з використаних упаковок і подивись,
-            що з цього може вийти
-        </p>
-
+    <div class="w-full h-[40vh] overflow-hidden">
+        <img
+                src="assets/start_brain.svg"
+                alt=""
+                class="w-full h-full object-cover object-top"
+        >
     </div>
 
-    <p-button
-            (click)="start()"
-            label="Start"
-            styleClass="w-full">
-    </p-button>
+    <div class="flex-1 flex flex-col px-6 py-8">
+
+        <div class="flex-1 flex flex-col items-center text-center mt-20">
+            <h1 class="text-3xl font-bold mb-4">
+                Привіт, почнімо 👋
+            </h1>
+
+            <p class="text-gray-500 max-w-xs leading-relaxed">
+                Створи щось корисне з використаних упаковок і подивись,
+                що з цього може вийти
+            </p>
+        </div>
+
+        <p-button
+                (click)="start()"
+                label="Start"
+                styleClass="w-full">
+        </p-button>
+
+    </div>
 
 </div>
