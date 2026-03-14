@@ -13,14 +13,15 @@ export const routes: Routes = [
         path: '',
         component: App,
         children: [
-            {path: '', redirectTo: 'start', pathMatch: 'full'},
+            {path: '', redirectTo: 'onboarding', pathMatch: 'full'},
+            {path: 'onboarding', component: Onboarding},
+
             {path: 'start', component: StartPage},
             {path: 'input', component: InputPage},
             {path: 'ideas-list', component: IdeasListPage},
             {path: 'idea-details', component: IdeaDetails},
             {path: 'result-input', component: ResultInputPage},
             {path: 'reward', component: RewardPage},
-            {path: 'onboarding', component: Onboarding},
         ]
     }
 ];

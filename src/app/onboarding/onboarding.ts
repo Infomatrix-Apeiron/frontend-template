@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Button} from 'primeng/button';
-import {NgOptimizedImage} from '@angular/common';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
@@ -9,7 +8,6 @@ import {InputText} from 'primeng/inputtext';
     selector: 'app-onboarding',
     imports: [
         Button,
-        NgOptimizedImage,
         FormsModule,
         InputText
     ],
@@ -32,12 +30,12 @@ export class Onboarding {
 
     ngOnInit() {
 
-        const name = localStorage.getItem('userName');
-        const age = localStorage.getItem('userAge');
-
-        if (name && age) {
-            this.router.navigate(['/start']);
-        }
+        // const name = localStorage.getItem('userName');
+        // const age = localStorage.getItem('userAge');
+        //
+        // if (name && age) {
+        //     this.router.navigate(['/start']);
+        // }
     }
 
     nextFromName() {

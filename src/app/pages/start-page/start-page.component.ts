@@ -20,4 +20,8 @@ export class StartPage {
     start() {
         this.router.navigate(['/input']);
     }
+
+    startFlow2() {
+        this.router.navigate(['/flow2-input']);
+    }
 }

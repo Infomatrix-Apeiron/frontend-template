@@ -10,6 +10,7 @@
 
         <input
                 pInputText
+                (keydown.enter)="nextFromName()"
                 [(ngModel)]="userName"
                 class="w-full max-w-xs">
 
