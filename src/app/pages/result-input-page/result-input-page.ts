@@ -29,10 +29,6 @@ export class ResultInputPage {
 
         if (!file) return;
         this.selectedFile = file;
-    }
-
-    submit() {
-        if (!this.selectedFile) return;
 
         this.flowService.finalPhotoForReward = this.selectedFile;
         this.router.navigate(['/reward']);

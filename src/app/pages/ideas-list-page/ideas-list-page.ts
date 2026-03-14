@@ -32,7 +32,7 @@ export class IdeasListPage implements OnInit {
     }
 
     ngOnInit() {
-        if (!this.flowService.prompt || !this.flowService.files.length) {
+        if (!this.flowService.files.length) {
             this.router.navigate(['/input']);
             return;
         }

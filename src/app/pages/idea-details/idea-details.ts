@@ -35,7 +35,7 @@ export class IdeaDetails implements OnInit {
     }
 
     ngOnInit() {
-        if (!this.flowService.selectedIdea?.title || !this.flowService.selectedIdea?.description || this.flowService.files[0]) {
+        if (!this.flowService.selectedIdea?.title || !this.flowService.selectedIdea?.description || !this.flowService.files?.[0]) {
             this.router.navigate(['/input']);
             return;
         }

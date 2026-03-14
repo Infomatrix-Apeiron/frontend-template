@@ -39,10 +39,6 @@ export class InputPage {
             prompt: '',
             files: [file]
         };
-    }
-
-    submit() {
-        if (!this.selectedRequest) return;
 
         this.flowService.prompt = this.selectedRequest.prompt;
         this.flowService.files = this.selectedRequest.files;
