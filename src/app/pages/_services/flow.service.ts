@@ -13,4 +13,6 @@ export class FlowService {
 
     selectedIdea?: Idea;
 
+    finalPhotoForReward?: File | null;
+
 }

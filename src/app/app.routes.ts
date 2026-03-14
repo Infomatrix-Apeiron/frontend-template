@@ -4,6 +4,8 @@ import {StartPage} from './pages/start-page/start-page.component';
 import {InputPage} from './pages/input-page/input-page';
 import {IdeasListPage} from './pages/ideas-list-page/ideas-list-page';
 import {IdeaDetails} from './pages/idea-details/idea-details';
+import {ResultInputPage} from './pages/result-input-page/result-input-page';
+import {RewardPage} from './pages/reward-page/reward-page';
 
 export const routes: Routes = [
     {
@@ -15,6 +17,8 @@ export const routes: Routes = [
             {path: 'input', component: InputPage},
             {path: 'ideas-list', component: IdeasListPage},
             {path: 'idea-details', component: IdeaDetails},
+            {path: 'result-input', component: ResultInputPage},
+            {path: 'reward', component: RewardPage},
         ]
     }
 ];

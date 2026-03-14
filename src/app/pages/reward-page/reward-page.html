@@ -1,0 +1,38 @@
+<div class="max-w-xl mx-auto py-12 px-6 text-center">
+
+    @if (loading$ | async) {
+        <div class="flex justify-center">
+            <p-progress-spinner
+                    strokeWidth="8"
+                    fill="transparent"
+                    animationDuration=".5s"
+                    [style]="{ width: '60px', height: '60px' }">
+            </p-progress-spinner>
+        </div>
+
+    } @else {
+        <div>
+
+            <h1 class="text-4xl font-bold mb-6 tracking-wide">
+                ЧУДОВА РОБОТА
+            </h1>
+
+            <p class="text-lg text-gray-700 mb-10 leading-relaxed">
+                {{ message }}
+            </p>
+
+            <div class="flex items-center justify-center gap-3 text-2xl font-semibold">
+
+                <span class="text-yellow-500">
+                    <img ngSrc="/assets/dollar.png" height="32" width="32"/>
+                </span>
+
+                <span>
+                    {{ coins }}
+                </span>
+
+            </div>
+
+        </div>
+    }
+</div>

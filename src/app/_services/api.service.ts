@@ -50,4 +50,15 @@ export class ApiService {
             formData
         );
     }
+
+    generateFeedback(photo: File): Observable<{message: string}> {
+
+        const formData = new FormData();
+        formData.append('photo', photo);
+
+        return this.http.post<{message: string}>(
+            `${this.baseUrl}/generate-feedback`,
+            formData
+        );
+    }
 }
