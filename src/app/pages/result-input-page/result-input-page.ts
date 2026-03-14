@@ -2,11 +2,13 @@ import {Component} from '@angular/core';
 import {Button} from 'primeng/button';
 import {FlowService} from '../_services/flow.service';
 import {Router} from '@angular/router';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
     selector: 'app-result-input-page',
     imports: [
-        Button
+        Button,
+        NgOptimizedImage
     ],
     templateUrl: './result-input-page.html',
     styleUrl: './result-input-page.css',

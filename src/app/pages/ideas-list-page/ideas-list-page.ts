@@ -7,12 +7,14 @@ import {Idea} from '../../_models/api.models';
 import {AsyncPipe} from '@angular/common';
 import {ProgressSpinner} from 'primeng/progressspinner';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {Button} from 'primeng/button';
 
 @Component({
     selector: 'app-ideas-list-page',
     imports: [
         AsyncPipe,
-        ProgressSpinner
+        ProgressSpinner,
+        Button
     ],
     templateUrl: './ideas-list-page.html',
     styleUrl: './ideas-list-page.css',

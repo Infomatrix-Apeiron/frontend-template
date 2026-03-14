@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Button} from 'primeng/button';
 import {FlowService} from '../_services/flow.service';
 import {Router} from '@angular/router';
+import {NgOptimizedImage} from '@angular/common';
 
 interface GenerateIdeasRequest {
     prompt: string;
@@ -11,7 +12,8 @@ interface GenerateIdeasRequest {
 @Component({
     selector: 'app-input-page',
     imports: [
-        Button
+        Button,
+        NgOptimizedImage
     ],
     templateUrl: './input-page.html',
     styleUrl: './input-page.css',

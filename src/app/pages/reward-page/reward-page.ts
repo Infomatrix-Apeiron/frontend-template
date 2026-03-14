@@ -6,13 +6,15 @@ import {ProgressSpinner} from 'primeng/progressspinner';
 import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {Router} from '@angular/router';
+import {Button} from 'primeng/button';
 
 @Component({
     selector: 'app-reward-page',
     imports: [
         ProgressSpinner,
         AsyncPipe,
-        NgOptimizedImage
+        NgOptimizedImage,
+        Button
     ],
     templateUrl: './reward-page.html',
     styleUrl: './reward-page.css',
@@ -23,6 +25,7 @@ export class RewardPage implements OnInit {
 
     message: string | null = null;
     coins: number = 200;
+    additionalCoins: number = 200;
 
     constructor(
         private api: ApiService,

@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {delay, Observable, of} from 'rxjs';
 import {environment} from '../environments/environment';
 import {Idea, IdeaInstructionsResponse} from '../_models/api.models';
+import {RESPONSE_1, RESPONSE_2, RESPONSE_3} from './responses.mock';
 
 @Injectable({
     providedIn: 'root'
@@ -24,9 +25,13 @@ export class ApiService {
             formData.append('files', file);
         }
 
-        return this.http.post<Idea[]>(
-            `${this.baseUrl}/generate-ideas`,
-            formData
+        // return this.http.post<Idea[]>(
+        //     `${this.baseUrl}/generate-ideas`,
+        //     formData
+        // );
+
+        return of(RESPONSE_1).pipe(
+            delay(3000)
         );
     }
 
@@ -45,9 +50,13 @@ export class ApiService {
             formData.append('photo', photo);
         }
 
-        return this.http.post<IdeaInstructionsResponse>(
-            `${this.baseUrl}/generate-instructions`,
-            formData
+        // return this.http.post<IdeaInstructionsResponse>(
+        //     `${this.baseUrl}/generate-instructions`,
+        //     formData
+        // );
+
+        return of(RESPONSE_2).pipe(
+            delay(3000)
         );
     }
 
@@ -56,9 +65,13 @@ export class ApiService {
         const formData = new FormData();
         formData.append('photo', photo);
 
-        return this.http.post<{message: string}>(
-            `${this.baseUrl}/generate-feedback`,
-            formData
+        // return this.http.post<{message: string}>(
+        //     `${this.baseUrl}/generate-feedback`,
+        //     formData
+        // );
+
+        return of(RESPONSE_3).pipe(
+            delay(3000)
         );
     }
 }
