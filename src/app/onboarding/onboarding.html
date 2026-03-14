@@ -1,0 +1,52 @@
+<div class="h-screen flex flex-col items-center justify-center p-6 gap-6 text-center">
+
+    @if (step === 'NAME') {
+
+        <img src="assets/blue_brain.svg" class="w-48" alt="">
+
+        <div class="text-xl font-semibold">
+            Як тебе звуть?
+        </div>
+
+        <input
+                pInputText
+                [(ngModel)]="userName"
+                class="w-full max-w-xs">
+
+        <p-button
+                label="Далі"
+                styleClass="w-full max-w-xs"
+                (click)="nextFromName()">
+        </p-button>
+
+    }
+
+    @if (step === 'AGE') {
+
+        <img src="assets/lion.svg" class="w-48" alt="">
+
+        <div class="text-xl font-semibold">
+            Скільки тобі років?
+        </div>
+
+        <div class="grid grid-cols-5 gap-2 max-w-xs">
+            @for (age of ages; track age.value) {
+                <button
+                        class="p-3 rounded-lg border text-center"
+                        [class.bg-blue-500]="userAge === age.value"
+                        [class.text-white]="userAge === age.value"
+                        (click)="userAge = age.value">
+                    {{ age.value }}
+                </button>
+            }
+        </div>
+
+        <p-button
+                label="Далі"
+                styleClass="w-full max-w-xs"
+                (click)="finish()">
+        </p-button>
+
+    }
+
+</div>
